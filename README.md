@@ -336,12 +336,11 @@ You can make javascript accessible - and it can actually the improve the usabili
 
 Aria not as well supported as you would expected - and support not well documented
 
-There will be compromises - 
+There will be compromises - no such thing as perfect accessibility
 
 ## Conclusion
 
 To make a website truly accessible buy-in is required from editorial, design and developer - and developer should implement sites/features using progressive enhancement
-
 
 # Notes
 
@@ -384,12 +383,8 @@ To make a website truly accessible buy-in is required from editorial, design and
 	* [Sport Olympic Service Update](http://www.bbc.co.uk/blogs/bbcinternet/2012/03/sport_olympic_service_update.html) 28 March, Andy
 	* [BBC Sport: Olympic page launch](http://www.bbc.co.uk/blogs/bbcinternet/2012/02/bbc_sport_olympic_page_launch.html) 8 Feb, Cait
 
-
-
 ## Videos
 
 * [BBC WiE: Cait O'Riordan and Lucie Mclean on the digital Olympics](http://www.youtube.com/watch?v=zQg_GSb6fUY)
 * [BBC Fusion Seminar: London 2012 - Alistair Duggin](http://www.youtube.com/watch?v=c1n_Btq2_5o)
 * [BBC Fusion Seminar: London 2012 - Cait O'Riordan](http://www.youtube.com/watch?v=HE9NbqYTz3A)
-
-
