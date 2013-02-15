@@ -104,48 +104,49 @@ Spoke to experts early - Ian and Henny
 Digest and circulate BBC standards and Guidelines
 
 Organised training
-	* Screenreader training - JAWS/NVDA
-	* Accessibile web applications - javascript, aria and html5
-		* Bespoke - used components that we were going to be building
-		* Support forum
+
+* Screenreader training - JAWS/NVDA
+* Accessibile web applications - javascript, aria and html5
+	* Bespoke - used components that we were going to be building
+	* Support forum
 
 Trawl resources for accessibility knowledge and best practice
 
-	* blogs
-	* books
-	* web aim mailing list
-	* simply accessible q and a 
+* blogs
+* books
+* web aim mailing list
+* simply accessible q and a 
 Wiki, Blog and Presentations to share round team / organisation
 
 Set up a support network 
 
-	* Mentor new developers
-	* Set up an email list
-	* learning lunches - chance to review and discuss approaches
+* Mentor new developers
+* Set up an email list
+* learning lunches - chance to review and discuss approaches
 
 Review and feedback accessibility concerns early - to designers, developers and product owners
 
 Agile methodology
 
-	* tackle features in priority order
-	* Push back on new features until core features complete - especially towards end of project
+* tackle features in priority order
+* Push back on new features until core features complete - especially towards end of project
 
 Let front-end developers concentrate on the front end - php developers concentrate on back end.
 
 Library of elements and reusable components
-	- oocss - elements and common sub components. don't tie visuals to elements
-	- components that can be dropped into any page
-	- use static feeds so not dependant on real data
-	- reuse leads to consistency, easier to test and maintain and pages that become quicker /easier to put together
+* oocss - elements and common sub components. don't tie visuals to elements
+* components that can be dropped into any page
+* use static feeds so not dependant on real data
+* reuse leads to consistency, easier to test and maintain and pages that become quicker /easier to put together
 	
 Progressive Enhancement. Only use aria an an extra if needed.
 
-Test early and often
+Test early and often:
 
-	* Developers - browser tests
-	* Code reviews before merging into release branch 
-	* Red Bee
-	* Henny
+* Developers - browser tests
+* Code reviews before merging into release branch 
+* Red Bee
+* Henny
 
 ## Implementation examples
 
@@ -306,9 +307,10 @@ aria-labelledby and aria-describedby?
 
 ## Lessons
 
-Lack known best practice
+Lack of known best practice - e,g
 	
 * how to use lists and headings
+* carousel
 
 Easy to over engineer things
 
