@@ -1,13 +1,14 @@
 # Accessibility on the Olympics website
 
 	TO DO:
-	* Watch Cait Video
-	* Watch My Video and read slides
+	
 	* Read my confluence accessibility pages
 	* Read my blog article
-	* Read Read Bee reports
-	* Read emails to/from Henny
 	* Read support forum
+	* Read emails to/from Henny and team
+	* Read Read Bee reports
+	* Read BBC Sport blog articles
+	* Read CSUN emails
 	
 	* Record a video of the medal table
 
@@ -15,7 +16,9 @@
 
 ### Scope of the Project
 
-The most ambitious BBC digital project/service to date - delivered to desktop, mobile web, mobile apps and connected tv
+The most ambitious and comprehensive BBC digital project to date - 4 screen proposition - delivered to PC, tablet, Mobile and Connect TV
+
+Grand vision - to deliver the first truly digital Olympics. Never miss a moment
 
 Website built around the olympics domain - a page for every athlete, team, venue, sport and medal winning event.  Each with an index pages.
 
@@ -23,37 +26,43 @@ Website built around the olympics domain - a page for every athlete, team, venue
 * 205 Countries
 * 30 Venues
 * 36 Sports
-* 300?? Medal Winning Events
+* 204 Medal Winning Events
 
-Each of these pages displayed the latest news stories, image galleries, video clips, schedule, results and medals tables.
+Each of these pages displayed Facts and figures, latest news stories, image galleries, short form video clips, schedule, results and medals tables.
 
-Page components including 
-
-* Twitter
+Other Page components including:
 * Top Trump style comparison modules
+* Twitter module
+* Favourites Tray
 
 Other sections and pages
 
 * Interactive Video Player
-* medal tables
-* Schedules
-* Results
+	* 24 High definition live streams of content
+	* 2500 hours of live coverage available on demand to all platforms
+* Medals table
+* Schedule and Results
 * News Articles 
 
 Over 100,000 pages in total
 
 	@ACTION - ask Andy, Keith, Matt and Cait if they know how many desktop and mobile pages
-
+	Most popular pages?
+	An stats for medal table?
+	
 ### Usage and Stats
 
 We knew the website would be popular and receive a huge amour of traffic - don't think anyone expected the figure we got
 
-	@ACTION: How many visitors
+	37 million UK browser - 66% UK online adult population
+	57m global browser to bbc.co.uk
+	111m video requests across all platforms
 	
-	@ACTION: How much video consumed
+	7.4 million mobile browsers
+	1.9m downloads of our Olympics smartphone app
+	12m requests for video from mobile devices
 	
 	@ACTION: Ask Henny if we should mention no accessibility complains
-	
 
 ## Accessibility at the BBC
 
@@ -71,22 +80,20 @@ Didn't want to repeat what happened to the Australian 2004 Olympics website.
 
 Lots to build in a relatively short space of time
 
-Waterfall Design with lots of javascript rich interactions
-
-Lots of developers in lots of different teams
-	many new to BBC
-	mixed knowledge of accessibility
-	teams spread across the BBC - including external companies
-	
-Waterfall Design with lots of javascript rich interactions
-
-BBC Standards and Guidelines not up to date - javascript, html5 and aria
-	
-Dynamic website - don't get lots of the real data until the actual event
-
 Immovable deadline
 
-Only a 3 week event - huge traffic so code freeze during event
+A 17 day event - huge traffic so code freeze during event
+
+Dynamic website - don't get lots of the real data until the actual event
+
+Design upfront with lots of javascript rich interactions
+
+Lots of developers in lots of different teams
+	London, Salford and external companies
+	many new to BBC
+	mixed knowledge of accessibility
+
+BBC Standards and Guidelines not up to date - javascript, html5 and aria
 
 No single good accessibility resource that shares best practices
 
@@ -178,24 +185,26 @@ Add hierarchical heading structure - one H1, don't skip and heading levels
 
 Select most appropriate elements - e.g buttons and links. Ensure page is keyboard navigable and that assistive technologies can communicate content effectively
 
-Didn't use any new HTML5 elements (e.g article/section) due to backwards compatibility
-
 Don't over engineers or add too much aural clutter
 
 	* heading inside lists
 	* buttons inside lists
+
+Didn't use any new HTML5 elements (e.g article/section) due to backwards compatibility
+
+Make sure links make sense out of context - visually hide extra content if needed
 	
 Don't duplicate links
 
 Make sure images have alt text when needed - but don't duplicate text
-
-Make sure links make sense out of context - hide extra content if needed
 
 Make sure tables marked up correctly
 
 Make sure forms marked up correctly (especially for and id) and have buttons
 
 No title attributes - shouldn't use for core content or duplicate other text already on page
+
+Make sure visual feedback is available without visuals - e.g selected
 
 #### CSS
 
@@ -217,9 +226,9 @@ Make sure content still readable when font size increased. **DEMO SPORT NAME**
 
 #### Javascript
 
-Make sure everything works before you add javascript. Use progressive Enhancement.
+Where possible make sure everything works before you add javascript - Use progressive Enhancement.
 
-Use http before ajax.
+Use http before implementing ajax.  Hijax
 
 Layout should work
 
@@ -231,21 +240,28 @@ If open/close
 
 	EXAMPLE: More articles and Event Table
 
-If ajax update screen reader virtual buffer
+Make inserted content (ajax) available to older screen readers -  update virtual buffer
 
 	EXAMPLE: Event Table
 
-If ajax inform user of data loading. Need to decide whether to take user to new content or inform them that new content has appears
+Manage keyboard focus when inserting new content. Need to decide whether to take user to new content or inform them that new content has appears.
 
+Provide instructions for how something works
+
+	PROVIDE EXAMPLE
+
+Keep users inform about what is going on - loading content, new content available
+	
+	EXAMPLE: ARIA LIVE REGION
 
 ### Medal Table
 
 	VIDEO of Medal table
 
 
-Built to work without javascript. Good as means you deliver something quickly - of you run out of time you have something that work.  Also if there is an error it will still work.
-This actually happened during the olympics. A stray coma on international pages meant javascript failed.  However pages still worked.
+Used Hijax
 
+Built to work without javascript. Good as means you deliver a basic/core version quickly - if you run out of time you still have something that work.  Also if there is an error it will still work. This actually happened during the olympics. A stray coma on international pages meant javascript failed.  However pages still worked.
 
 Logical Content order - go to any page without javascript and the content is in logical order.
 
