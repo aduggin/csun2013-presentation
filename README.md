@@ -2,15 +2,23 @@
 
 	TO DO:
 	
-	* Read my confluence accessibility pages
-	* Read my blog article
-	* Read support forum
+	* Read CSUN emails
+		
+	* Find and read support forum
 	* Read emails to/from Henny and team
 	* Read Read Bee reports
-	* Read BBC Sport blog articles
-	* Read CSUN emails
 	
+	* Read BBC Sport blog articles
+	
+	* Find example of moving text off screen
+	* Find a tool for showing aria roles on a web page
 	* Record a video of the medal table
+	
+	FURTHER STUFF TO READ BEFORE PRESENTATION:
+	
+	http://www.w3.org/WAI/PF/aria-practices
+	http://www.w3.org/TR/WCAG/
+	http://www.w3.org/WAI/WCAG20/quickref/
 
 ## Introduction to the product
 
@@ -73,8 +81,15 @@ Talk about
 * Standards and Guidelines - Henny created a single document for all accessibility standards
 * BBC Trust
 
-Didn't want to repeat what happened to the Australian 2004 Olympics website.
+First project I have worked on where accessibility has been made a real priority/requirement from the product owner at the start of the project.
 
+May have had something to do with Australian 2004 olympics website and a belief that the website would be under close scrutiny
+
+
+## The Aim
+
+* Equivalent access for all
+* Consistency in implementation across the site
 
 ## The challenges
 
@@ -88,6 +103,8 @@ Dynamic website - don't get lots of the real data until the actual event
 
 Design upfront with lots of javascript rich interactions
 
+Incorporating features built by other teams
+
 Lots of developers in lots of different teams
 	London, Salford and external companies
 	many new to BBC
@@ -95,14 +112,11 @@ Lots of developers in lots of different teams
 
 BBC Standards and Guidelines not up to date - javascript, html5 and aria
 
-No single good accessibility resource that shares best practices
+A shortage of practical examples and support information. No single good accessibility resource that shares best practices that is easily digestible by developers and designers.
 
-Many best practices still not really established. Little or no empirical evidence - e.g what the best way to build a carousel.  There's a difference between making something technical accessible and intuitive/usable.
-
+Many best practices still not really established. Very little shared research and observation - e.g what the best way to build a carousel.  There's a difference between making something technical accessible and intuitive/usable. 
 
 ## The Development approach
-
-Accessibility made a priority from above from the start
 
 Thought about accessibility from the start
 
@@ -113,7 +127,7 @@ Digest and circulate BBC standards and Guidelines
 Organised training
 
 * Screenreader training - JAWS/NVDA
-* Accessibile web applications - javascript, aria and html5
+* Accessibile web applications training - javascript, aria and html5
 	* Bespoke - used components that we were going to be building
 	* Support forum
 
@@ -138,15 +152,32 @@ Agile methodology
 * tackle features in priority order
 * Push back on new features until core features complete - especially towards end of project
 
-Let front-end developers concentrate on the front end - php developers concentrate on back end.
-
 Library of elements and reusable components
-* oocss - elements and common sub components. don't tie visuals to elements
+
+* OOCSS - elements and common sub components. don't tie visuals to elements
 * components that can be dropped into any page
-* use static feeds so not dependant on real data
+	* First build the front end - HTML/CSS/JS
+	* Then write php to render HTML
+	* use static feeds so not dependant on real data
+	* feeds feeds for all scenarios / varieties
 * reuse leads to consistency, easier to test and maintain and pages that become quicker /easier to put together
-	
+
+Components
+
+* http://www.test.bbc.co.uk/sport/olympics/2012/staticlibrary/are001-athlete-results
+* http://www.test.bbc.co.uk/sport/olympics/2012/staticlibrary/h2h001-d-country-head-to-head-during
+* http://www.test.bbc.co.uk/sport/ui/docs/top-stories
+* http://www.test.bbc.co.uk/sport/ui/docs/pictogram-grid
+
+Let front-end developers concentrate on the front end - php developers concentrate on back end.
+		
 Progressive Enhancement. Only use aria an an extra if needed.
+
+Characteristics of accessibility
+* Perceivable
+* Operable
+* Understandable
+* Robust
 
 Test early and often:
 
@@ -167,11 +198,19 @@ Skips links
 
 Landmark roles to aid screen reader navigation
 
+* banner
+* navigation
+* main
+* complementary
+* search ?
+* contentinfo?
+
 Lang attribute
 
 Unique title
 
 Unique h1
+
 
 ### Content Pages
 
@@ -179,47 +218,80 @@ Unique h1
 
 Make sure that content is in logical order - rather than thinking about the visual design
 
+Example: [Featured Athletes](http://www.test.bbc.co.uk/sport/olympics/2012/staticlibrary/fea001-featured-athletes)
+
 #### HTML AND ARIA
 
-Add hierarchical heading structure - one H1, don't skip and heading levels
+Add hierarchical heading structure - don't skip and heading levels
 
-Select most appropriate elements - e.g buttons and links. Ensure page is keyboard navigable and that assistive technologies can communicate content effectively
+	SHOW OUTLINE OF A PAGE
+
+Select most appropriate elements - e.g buttons, links, lists, tables. Ensure page is keyboard navigable and that assistive technologies can communicate content effectively
 
 Don't over engineers or add too much aural clutter
 
 	* heading inside lists
 	* buttons inside lists
 
-Didn't use any new HTML5 elements (e.g article/section) due to backwards compatibility
+We didn't use any/many new HTML5 elements (e.g article/section) due to backwards compatibility and didn't use heading section nesting. May have used time element and placeholder attribute
 
 Make sure links make sense out of context - visually hide extra content if needed
 	
 Don't duplicate links
 
+	SHOW EXAMPLE
+
 Make sure images have alt text when needed - but don't duplicate text
+
+	SHOW EXAMPLE
 
 Make sure tables marked up correctly
 
 Make sure forms marked up correctly (especially for and id) and have buttons
 
-No title attributes - shouldn't use for core content or duplicate other text already on page
+We didn't use title attributes - shouldn't use for core content or duplicate other text already on page
 
 Make sure visual feedback is available without visuals - e.g selected
 
 #### CSS
 
-Take care not to introduce barriers
-
-If hiding text of screen used absolute positioning - not display:none
-
-Make sure that you implement keyboard focus as well as hover.
+**Take care not to introduce barriers**
 
 Check for colour contrast
 
-Fonts resizable
+Set background colour swell as background image so can view text immediately
 
-Make sure content still readable when font size increased. **DEMO SPORT NAME**
+	DEMO MASTHEAD
 
+Make sure that you implement keyboard focus as well as hover - don't use outline:none (check reset.css)
+
+	DEMO SPORT NAV
+
+Make sure fonts resizable and content still readable when font size increased.
+
+	DEMO SPORT NAV
+
+Only use display:none if want to hide from everyone. If hiding text only from visual users the move off screen or clip
+
+	EXAMPLE: Athlete Head to Head
+	<p class="blq-hide overview"> <span class="reference-name">Mo Farah</span> vs <span class="comparison-name">Nick Mccormick</span> </p>
+	
+	.blq-hide {
+    	left: -2500px;
+    	overflow: hidden;
+    	position: absolute;
+    	width: 1px;
+	}
+	
+	ARE YOU TAKEN TO NEW CONTENT BY JS?
+
+Only include visible controls in the tab order
+
+	DEMO SPORT NAV
+
+Make sure works with HTTP before implementing any javascript
+
+If an image is decorative and doesn't contain editorial text then background image - NOT SURE IF TO INCLUDE THIS
 
 ### Interactive Components
 
@@ -228,46 +300,96 @@ Make sure content still readable when font size increased. **DEMO SPORT NAME**
 
 Where possible make sure everything works before you add javascript - Use progressive Enhancement.
 
-Use http before implementing ajax.  Hijax
+Use aria if it will be useful
 
-Layout should work
+	EXAMPLE: Global nag
+	aria-haspopup="true"
+	aria-hidden="true|false"
+
+Try to make it accessible without ARIA if you can due to limited support - e.g tabs
+
+#### Forms need buttons 
+
+ otherwise unusable by keyboard users.
+
+	EXAMPLE: athlete a-z
+
+##### Layout should work without javascript
 
 	EXAMPLE: carousel
 
-If open/close 
-	needs to be open if no javascript
-	need to update the text button text to include open/close
+##### expandable content
 
-	EXAMPLE: More articles and Event Table
+* needs to be open if no javascript
+* add button with javascript
+* need to update the text button text to include open/close
 
-Make inserted content (ajax) available to older screen readers -  update virtual buffer
+	EXAMPLE: http://www.bbc.co.uk/sport/olympics/2012/sports/athletics
 
-	EXAMPLE: Event Table
+##### http before ajax
+
+	EXAMPLE - top medals
+
+http://www.bbc.co.uk/sport/0/olympics/2012/?mini-medal-table-type=athletes&mmt-go=go#medals-widget
+
+##### update virtual buffer
+
+Make inserted content (ajax) available to older screen readers -  
+
+	EXAMPLE: Event Table with example javascript
+	
+[http://www.bbc.co.uk/sport/olympics/2012/sports/swimming/events](http://www.bbc.co.uk/sport/olympics/2012/sports/swimming/events)
+
+#### keyboard focus 
 
 Manage keyboard focus when inserting new content. Need to decide whether to take user to new content or inform them that new content has appears.
 
-Provide instructions for how something works
+	EXAMPLE: Moving focus as simple as .focus()
 
-	PROVIDE EXAMPLE
+#### Provide instructions for how something works
 
-Keep users inform about what is going on - loading content, new content available
+	EXAMPLE: Text moved off screen
+
+#### Keep screen reader users informed about what is going on 
+
+- loading content, new content available
 	
 	EXAMPLE: ARIA LIVE REGION
 
+#### Keyboard traps
+
+Make sure you can get to all content and that you don't introduce and keyboard traps
+
+#### Keyboard control
+
+if adding any keyboard control make sure it doesn't override any default browser or screen reader keyboard controls
+
 ### Medal Table
 
-	VIDEO of Medal table
+	ACTION: create video of Medal table
+	
+	ACTION: ASK ANDY/MATT HOW MANY VISITS THE MEDAL TABLE GOT
+	
+Our most shared page - over 11K shares
 
-
-Used Hijax
+Used Hijax - http before ajax
 
 Built to work without javascript. Good as means you deliver a basic/core version quickly - if you run out of time you still have something that work.  Also if there is an error it will still work. This actually happened during the olympics. A stray coma on international pages meant javascript failed.  However pages still worked.
+Also means that you can bookmark and email a page to friends
+
+Most appropriate markup 
+
+* th for countries 
+* scope
+* caption
+* summary
+
 
 Logical Content order - go to any page without javascript and the content is in logical order.
 
-Most appropriate markup - th for countries 
-
 Identify which content is selected in content layer as well as visual layer.
+
+Keyboard short cuts to be able to jump to next table etc
 
 Alt for medal images
 
@@ -278,14 +400,39 @@ Inform users that content loading - aria live region
 Users taken to loaded content
 
 	WRITE UP ANY OTHER ACCESSIBILITY FEATURES IN MEDAL TABLE
+	
+Using the History API to update the url (so users can bookmark and email)
+
+Design wanted styled scroll bars. Only possible to implement cross browser by using javascript to create fake scroll bars.  Pushed back - said we will only do it in webkit as only browsers with css support
+	
+	CREATE A SCREENSHOT TO COMPARE
+
 
 ### Add to Favourites
-
-aria-labelledby and aria-describedby?
 
 	READ UP ON 'ADD TO FAVOURITES' IN FORUM AND EMAILS
 	
 	SPEAK TO TIAN ASK ABOUT ACCESSIBILITY OF FAVOURITES
+	
+dialog
+
+* set focus to dialog when it opens
+* make sure there is a close button
+* make sure it closes with the ESC key
+
+aria-labelledby and aria-describedby?
+
+### Schedule
+
+Presented in multiple ways - Grid view and list view (simpler layout)
+
+	ASK HENNY IF SHE WANTS TO TALK ABOUT THIS
+
+### Animations
+
+Made sure where at the bottom of the page to minimise distraction to users reading text
+
+Only cycled once ()when area came into view) - had a replay button for those that wanted to.
 
 
 ## Mistakes and solutions
@@ -295,70 +442,126 @@ aria-labelledby and aria-describedby?
 	@ACTION - FIND RED BEE REPORT
 	
 	@ACTION - TALK TO SAM
-	
-* John's components - content not in logical order, multiple links and alt text. Wrong heading structure
-* Favourite Button - a div
-* Twitter module - infinite scroll, no way to exit for a keyboard user
-* Couldn't play video using a keyboard.
-* carousel - used field set, legend and button in links (over engineered)
-* Olympic Powers - had to make lots of fixes!
 
-* Non semantic markup in results sections. .caption etc
-* Auto page refresh
+* Featured countries - content not in logical order, multiple links. Wrong heading structure
+* Aural clutter wrong wrong elements 
+	* More from - from headings inside lists - removed lists.
+	* [Coverage Promo](http://www.test.bbc.co.uk/sport/ui/docs/coverage-promo) - nested lists
+* carousel - used field set, legend and button in links (over engineered).  Added role="presentation"
+* Favourite Button - a span changed to a button
+* Peeking navigation - on click handler for next and previous on arrow keys. Removed.
+* Twitter module - infinite scroll, no way to exit for a keyboard user. Added link to exit.
+* Couldn't play video using a keyboard. Added a link to play the video.
+* Olympic Powers - had to make lots of fixes! Fixed validation issues, heading structure and added keyboard focus.
+* Colour contrast - red bee report
 
 
 ## Stuff that got through / Compromises
 
+Did we do everything perfectly?  Of course not.
+
+* Over engineering semantic mark of early components - athlete facts and 2012 table.
 * Team GB country page - different design, different content order
-* Medal tables - only colour used to distinguish medals
+* Medal tables - colour used to distinguish medals
+* More from heading links same colour as text
+* Auto suggest not screen reader friendly - no supported in query ui - should be now.
+* Live tables - didn't have ability to turn off auto update
+* Non semantic markup in results sections. .caption etc
+* No transcripts for video - was there any? iPlayer?
+* editorial info graphics
+
+	TO DO: FIND ANDREW LIEDORFMIESTER EMAIL THAT COMPLAINED ABOUT ON
 
 
 ## Mobile
 
 
-
 ## Video
-
 
 
 ## Lessons
 
-Lack of known best practice - e,g
+Think about accessibility early. Much easier to implement accessible from the start rather than refactor at the end.
+
+Turn to experts when you need some advice.
+
+Lack of known best practice - even for simple/common things - e.g
 	
 * how to use lists and headings
 * carousel
 
+Many ways to implement something - don't know the best way or if accessibility has been achieved without testing it - but testing with  a range of people and devices is time consuming and expensive. 
+
 Easy to over engineer things
 
-Easy to introduce accessibility barriers
+Compliance != accessible. E.g how many screen reader users what aria is - and that they can use arrow keys etc. We chose not to use aria when we didn't have to - e.g carousel that you tab through (as you would a normal set of links).
+
+Discoverability - if you add keyboard shortcuts how does a user know about them. Can't assume that all disabled users are power users that fully know how to use there device - where that be a browser, a screen reader or a smartphone.
+
+Easy to introduce accessibility barriers - at every step.
 
 Progressive enhancement is key.
 
-Thorough accessibility knowledge not as widespread amongst developers as one would hope.
+Thorough accessibility knowledge not as widespread amongst developers as one would hope. Can't assume that other team members share understanding of accessibility.
 
-Most accessibility issues are due to ignorance not carelessness or spite.
+
+
+Most accessibility issues are due to ignorance not carelessness or spite. Most people simply don't understand the implications of how they design or code something.
+
+Design aesthetics often trump accessibility requirements - e.g medal via colours
 
 Most front end developers are keen to learn a better/accessible way of doing something - this knowledge just needs to be better well documented and findable.
-
-Much easier to implement accessible from the start rather than 
 
 Don't need to compromise aesthetics or functionality to achieve accessibility
 
 Accessibility comes through diligence and attention to detail. Need to have everyone onboard as it's incredible easy for someone to accidentally introduce an accessibility barrier or usability issue.
 
-Accessibility testing with real users is expensive - but you don't really know if you have achieved accessibility until you see a range of people and devices using your website.
-
 You can make javascript accessible - and it can actually the improve the usability of a page for assistive technology users - e.g partial page refresh instead of full page refresh.
 
 Aria not as well supported as you would expected - and support not well documented
 
-There will be compromises - no such thing as perfect accessibility
+There will be compromises - things won't be perfect
+
+Feedback early when you sport accessibility issues (esp design)  - be strong enough to refuse to do something if people not listening
+
 
 ## Conclusion
 
-To make a website truly accessible buy-in is required from editorial, design and developer - and developer should implement sites/features using progressive enhancement
+To make a website truly accessible buy-in is required from editorial, design and developer
+Developers should implement sites/features using progressive enhancement
+You only know if you have achieved accessibility by observing real users.
+More research and observation needs to be carried out and shared.
 
-# Notes
+Would help if we have common design and implementation patterns - like iOS components. Every app comes with a degree of accessibility when using default components - and works in the same way for all users.
+
+
+---
+
+
+
+# Notes on Components
+
+## Nav bar
+
+Resizeable
+
+role="banner"
+
+olympic sports > non-us 'sports' page
+
+## Add to favourites
+
+Javascript only
+
+Made team change span to a button
+
+## Event Table
+
+[http://www.bbc.co.uk/sport/olympics/2012/sports/swimming/events](http://www.bbc.co.uk/sport/olympics/2012/sports/swimming/events)
+
+---
+
+# Resources
 
 ## Links
 
